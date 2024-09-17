@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ItemList = ({ products }) => {
   return (
@@ -8,7 +9,7 @@ const ItemList = ({ products }) => {
           <div className="col-md-4 mb-4" key={product.id}>
             <div className="card h-100 align-items-center">
               <img
-                src="https://speedwellcoffee.com/cdn/shop/products/COLD-BREW_240x.png"
+                src={product.img}
                 style={{ width: '240px', height: '240px' }}
                 className="card-img-top"
                 alt={product.name}
@@ -18,7 +19,7 @@ const ItemList = ({ products }) => {
                   {product.name}
                 </h5>
                 <p className="card-text">{product.description}</p>
-                <button type="button" className="btn btn-success">Agregar al carrito</button>
+                <Link to={`/item/${product.id}`} className="btn btn-success">Ver detalles</Link>
               </div>
             </div>
           </div>
